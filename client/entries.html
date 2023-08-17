@@ -7,22 +7,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/style.css">
-    <script src="./assets/index.js" defer ></script>
+    <link rel="stylesheet" href="./assets/entries_style.css">
+    <script src="./assets/entries.js" defer></script>
 </head>
 <body>
     <section class="book">
         <div class="left">
-            <h1>Bridget Jones Diary</h1>
-            <h5>Your own personal diary</h3>
+            <h1>Entries</h1>
+            <h5>Your own personal diary</h5>
         </div>
         <div class="right">
             <div class="navbar">
                 <ul class="ul_navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="entries.html">Entries</a></li>
-                    <li><a href="create.html">Create</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="entries.html">ENTRIES</a></li>
+                    <li><a href="create.html">CREATE</a></li>
                 </ul>
+            </div>
+            <div class="entry">
+                <header>
+                    <h5 id="date"></h5>
+                    <h6 id="time"></h6>
+                </header>
+                <form id="entry_form">
+                    <textarea name="entry_content" id="content" cols="30" rows="10" disabled></textarea>
+                    <input type="submit" value="EDIT" class="edit">
+                </form>
+                <button id="updateButton">UPDATE</button>
             </div>
         </div>
     </section>

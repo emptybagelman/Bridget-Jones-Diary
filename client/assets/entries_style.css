@@ -1,0 +1,114 @@
+:root{
+    --bg: #d1b897;
+    --bg-shadow: #b89f7e9d;
+}
+
+body{
+    font-family: 'Special Elite', cursive;
+    font-size: 2em;
+    letter-spacing: -1.6px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    transform-style: preserve-3d;
+}
+
+body *{
+    font-family: 'Special Elite', cursive;
+}
+
+.book{
+    width: 70vw;
+    height: 95vh;
+    background: var(--bg);
+    position: relative;
+    z-index: 5;
+    display: flex;
+    box-shadow: 0 0 0 15px rgb(82, 41, 4);
+    border-radius: 2px;
+}
+
+.left,
+.right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left{
+    justify-content: flex-start;
+    padding-top: 50px;
+    background: linear-gradient(90deg, var(--bg) 95%, var(--bg-shadow) 100%);
+}
+
+.right{
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(270deg, var(--bg) 95%, var(--bg-shadow) 100%);
+}
+
+.navbar{
+    display: flex;
+}
+
+.ul_navbar{
+    display: flex;
+    padding-right: 20px;
+}
+
+.ul_navbar>li{
+    padding: 0 10px;
+    list-style: none;
+}
+
+.ul_navbar>li:hover{
+    background-color: var(--bg-shadow);
+}
+
+.ul_navbar>li>a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 5px 5px;
+}
+
+.ul_navbar>li>a:visited,
+.ul_navbar>li>a:link{
+    color: black;
+}
+
+.entry{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    height: 800px;
+}
+
+header{
+    display: flex;
+    gap: 20px;
+    justify-content: left;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.edit{
+    font-size: 1.2rem;
+}
+
+#content {
+    width: 100%;
+    background-color: var(--bg);
+    font-size: 1.5rem;
+    font-family: 'Special Elite', cursive;
+    border: none;
+    border-radius: 5px;   
+    resize: none; 
+}
+
+#updateButton{
+    width: 90px;
+    font-size: 1.2rem;
+}
