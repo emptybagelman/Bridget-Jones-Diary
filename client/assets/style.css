@@ -1,3 +1,8 @@
+:root{
+    --bg: #d1b897;
+    --bg-shadow: #b89f7e9d;
+}
+
 body{
     font-family: 'Special Elite', cursive;
     font-size: 2em;
@@ -12,10 +17,11 @@ body{
 .book{
     width: 70vw;
     height: 95vh;
-    background: rgb(209, 184, 151);
+    background: var(--bg);
     position: relative;
     z-index: 5;
     display: flex;
+    
 }
 
 .left,
@@ -28,6 +34,11 @@ body{
 
 .left{
     justify-content: center;
+    background: linear-gradient(90deg, var(--bg) 95%, var(--bg-shadow) 100%);
+}
+
+.right{
+    background: linear-gradient(270deg, var(--bg) 95%, var(--bg-shadow) 100%);
 }
 
 .navbar{
