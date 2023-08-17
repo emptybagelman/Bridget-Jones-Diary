@@ -46,6 +46,14 @@ class Entry {
         return new Entry(response.rows[0])
     }
 
+    async destroy() {
+        const response = await db.query('DELETE FROM diary WHERE entry_id = $1 RETURNING *;', [this.entry_id]);
+        if (response.rows.length != 1) {
+            throw new Error("Unable to delete entry.")
+        }
+        return new Entry(response.rows[0]);
+    }
+
 }
 
 module.exports = Entry;

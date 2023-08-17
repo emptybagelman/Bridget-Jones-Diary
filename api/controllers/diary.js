@@ -26,20 +26,31 @@ async function create(req,res) {
         const newEntry = await Diary.create(data);
         res.status(201).json(newEntry);
     } catch (err) {
-        res.status(400).json({ error: err.message })
+        res.status(400).json({ error: err.message });
     }
 }
 
 async function update(req,res) {
     try {
         const entry_id = parseInt(req.params.id);
-        const data = req.body
-        const entryToUpdate = await Diary.getOneById(entry_id)
-        const result = await entryToUpdate.update(data)
-        res.status(200).json(result)
+        const data = req.body;
+        const entryToUpdate = await Diary.getOneById(entry_id);
+        const result = await entryToUpdate.update(data);
+        res.status(200).json(result);
     } catch (err) {
-        res.status(404).json({ error: err.message })
+        res.status(404).json({ error: err.message });
     }
 }
 
-module.exports = { index, show, create, update };
+async function destroy(req, res) {
+    try {
+        const entry_id = parseInt(req.params.id);
+        const entryToDelete = await Diary.getOneById(entry_id);
+        await entryToDelete.destroy();
+        res.sendStatus(204);
+    } catch (err) {
+        res.status(404).json({ error: err.message });
+    }
+}
+
+module.exports = { index, show, create, update, destroy };
