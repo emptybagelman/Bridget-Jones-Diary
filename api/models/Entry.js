@@ -9,7 +9,7 @@ class Entry {
     }
 
     static async getAll(){
-        const response = await db.query("SELECT * FROM diary;");
+        const response = await db.query("SELECT * FROM diary ORDER BY date DESC;");
         if(response.rows.length === 0){
             throw new Error("No entries available");
         }
