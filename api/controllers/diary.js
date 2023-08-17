@@ -53,4 +53,39 @@ async function destroy(req, res) {
     }
 }
 
-module.exports = { index, show, create, update, destroy };
+async function searchDate(req, res) {
+    try {
+        const keyword = req.params.keyword;
+        let entry;
+
+        const routeType = req.path.split("/")[2]; // Extract the route type (year, month, day)
+        console.log(routeType)
+        if (routeType === "year") {
+            entry = await Diary.searchByYear(keyword);
+        } else if (routeType === "month") {
+            entry = await Diary.searchByMonth(keyword);
+        } else if (routeType === "day") {
+            entry = await Diary.searchByDay(keyword);
+        } else {
+            throw new Error("Invalid route type.");
+        }
+
+        res.status(200).json(entry);
+    } catch (err) {
+        res.status(404).json({"error": err.message});
+    }
+}
+
+async function searchContent (req, res) {
+    try {
+        const keyword = req.params.keyword.toLowerCase()
+        const entry = await Diary.searchByContent(keyword);
+        res.status(200).json(entry);
+    } catch (err) {
+        res.status(404).json({"error": err.message})
+    }
+}
+
+
+module.exports = { index, show, create, update, destroy,
+searchDate, searchContent };

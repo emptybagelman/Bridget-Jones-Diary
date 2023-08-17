@@ -54,6 +54,49 @@ class Entry {
         return new Entry(response.rows[0]);
     }
 
+    static async searchByYear(keyword) {
+        const response = await db.query("SELECT * FROM diary WHERE SUBSTRING(date, 7, 2) LIKE $1;", [`%${keyword}%`]);
+    
+        if (response.rows.length === 0) {
+            throw new Error("No entries found for that year.")
+        }
+    
+        const entries = response.rows.map(row => new Entry(row));
+        return entries;
+    }
+    
+    static async searchByMonth(keyword) {
+        const response = await db.query("SELECT * FROM diary WHERE SUBSTRING(date, 4, 2) LIKE $1;", [`%${keyword}%`]);
+    
+        if (response.rows.length === 0) {
+            throw new Error("No entries found for that month.")
+        }
+    
+        const entries = response.rows.map(row => new Entry(row));
+        return entries;
+    }
+    
+    static async searchByDay(keyword) {
+        const response = await db.query("SELECT * FROM diary WHERE SUBSTRING(date, 1, 2) LIKE $1;", [`%${keyword}%`]);
+    
+        if (response.rows.length === 0) {
+            throw new Error("No entries found for that day.")
+        }
+    
+        const entries = response.rows.map(row => new Entry(row));
+        return entries;
+    }
+
+    static async searchByContent(keyword) {
+        const response = await db.query("SELECT * FROM diary WHERE content LIKE $1;", [`%${keyword}%`]);
+    
+        if (response.rows.length === 0) {
+            throw new Error("No entries found with that content")
+        }
+    
+        const entries = response.rows.map(row => new Entry(row));
+        return entries;
+    }
 }
 
 module.exports = Entry;
