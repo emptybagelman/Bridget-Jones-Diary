@@ -70,3 +70,9 @@ body{
 .ul_navbar>li>a:link{
     color: black;
 }
+
+.pageLeft,
+.pageRight{
+    position: absolute;
+    bottom: 0;
+}

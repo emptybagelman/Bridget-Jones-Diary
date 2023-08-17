@@ -21,7 +21,7 @@ class Entry {
     console.log('getOneById response:', response.rows[0]);
     
     if (response.rows.length != 1) {
-        throw new Error("Unable to locate entry.")
+        return new Entry({entry_id:999,date:'',time:'',content:''})
         }
         return new Entry(response.rows[0]);
     }

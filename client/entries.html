@@ -9,14 +9,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/entries_style.css">
     <script src="./assets/entries.js" defer></script>
+    <script src="./assets/page_numbers.js" defer></script>
 </head>
 <body>
     <section class="book">
         <div class="left">
+            <div class="before"><</div>
+            <div class="pageLeft">0</div>
             <h1>Entries</h1>
-            <h5>Your own personal diary</h5>
+            <div class="lentry">
+                <header>
+                    <h5 id="ldate"></h5>
+                    <h6 id="ltime"></h6>
+                </header>
+                <form id="lentry_form">
+                    <textarea name="entry_content" id="lcontent" cols="30" rows="10" disabled></textarea>
+                    <input type="submit" value="UPDATE" class="edit" id="lupdateButton">
+                </form>
+                <button id="ledit">EDIT</button>
+                <button id="lcancelButton">CANCEL</button>
+            </div>
         </div>
         <div class="right">
+            <div class="next">></div>
+            <div class="pageRight">0</div>
             <div class="navbar">
                 <ul class="ul_navbar">
                     <li><a href="index.html">HOME</a></li>
@@ -24,16 +40,17 @@
                     <li><a href="create.html">CREATE</a></li>
                 </ul>
             </div>
-            <div class="entry">
+            <div class="rentry">
                 <header>
-                    <h5 id="date"></h5>
-                    <h6 id="time"></h6>
+                    <h5 id="rdate"></h5>
+                    <h6 id="rtime"></h6>
                 </header>
-                <form id="entry_form">
-                    <textarea name="entry_content" id="content" cols="30" rows="10" disabled></textarea>
-                    <input type="submit" value="EDIT" class="edit">
+                <form id="rentry_form">
+                    <textarea name="entry_content" id="rcontent" cols="30" rows="10" disabled></textarea>
+                    <input type="submit" value="UPDATE" class="edit" id="rupdateButton">
                 </form>
-                <button id="updateButton">UPDATE</button>
+                <button id="redit">EDIT</button>
+                <button id="rcancelButton">CANCEL</button>
             </div>
         </div>
     </section>
