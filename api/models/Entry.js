@@ -9,7 +9,7 @@ class Entry {
     }
 
     static async getAll(){
-        const response = await db.query("SELECT * FROM diary ORDER BY date DESC;");
+        const response = await db.query("SELECT * FROM diary ORDER BY entry_id ASC;");
         if(response.rows.length === 0){
             throw new Error("No entries available");
         }
@@ -28,11 +28,7 @@ class Entry {
 
     static async create(data) {
         const { date, time, content } = data
-        const response = await db.query(`
-          INSERT INTO diary(date, time, content)
-          VALUES ($1, $2, $3) RETURNING *`,
-          [date, time, content]
-        )
+        const response = await db.query(`INSERT INTO diary(date, time, content) VALUES ($1, $2, $3) RETURNING *`,[date, time, content])
         return new Entry(response.rows[0])
     }
 

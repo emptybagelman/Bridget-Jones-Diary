@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS diary;
 
 CREATE TABLE diary (
     entry_id INT GENERATED ALWAYS AS IDENTITY,
-    date VARCHAR(50) NOT NULL UNIQUE,
+    date VARCHAR(50) NOT NULL,
     time VARCHAR(10) NOT NULL,
     content VARCHAR(1000) NOT NULL,
     PRIMARY KEY (entry_id)
