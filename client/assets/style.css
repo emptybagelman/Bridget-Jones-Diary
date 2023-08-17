@@ -1,0 +1,22 @@
+body{
+    font-family: 'Special Elite', cursive;
+    font-size: 2em;
+    letter-spacing: -1.6px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.book{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    height: 95vh;
+    background: rgb(179, 94, 61);
+    position: relative;
+    z-index: 5;
+
+}
+
