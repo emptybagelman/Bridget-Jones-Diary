@@ -4,6 +4,7 @@
 }
 
 body{
+    background-color: rgb(37, 21, 21);
     font-family: 'Special Elite', cursive;
     font-size: 2em;
     letter-spacing: -1.6px;
@@ -160,4 +161,30 @@ header{
 .pageRight{
     position: absolute;
     bottom: 0;
+}
+
+#ledit,
+#redit,
+#lupdateButton,
+#rupdateButton,
+#lcancelButton,
+#rcancelButton{
+    width: 100px;
+    height: 50px;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 5px; 
+    background-color: #fdecd69d;
+    border: 2px solid rgb(97, 50, 29);
+}
+
+#ledit:hover,
+#redit:hover,
+#lupdateButton:hover,
+#rupdateButton:hover,
+#lcancelButton:hover,
+#rcancelButton:hover{
+    cursor: pointer;
+    background-color: var(--bg-shadow);
 }

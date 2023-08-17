@@ -4,6 +4,7 @@
 }
 
 body{
+    background-color: rgb(37, 21, 21);
     font-family: 'Special Elite', cursive;
     font-size: 2em;
     letter-spacing: -1.6px;
@@ -15,35 +16,32 @@ body{
 }
 
 .book{
-    width: 70vw;
+    width: 35vw;
     height: 95vh;
     background: var(--bg);
     position: relative;
     z-index: 5;
     display: flex;
+    justify-content: center;
+    text-align: center;
     box-shadow: 0 0 0 15px rgb(82, 41, 4);
     border-radius: 2px;
 }
 
-.left,
-.right{
-    width: 50%;
+.front{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-around;
 }
 
-.left{
-    justify-content: center;
-    background: linear-gradient(90deg, var(--bg) 95%, var(--bg-shadow) 100%);
-}
-
-.right{
-    background: linear-gradient(270deg, var(--bg) 95%, var(--bg-shadow) 100%);
+h1{
+    padding-top: 100px;
 }
 
 .navbar{
     display: flex;
+    justify-content: center;
+    transform: translateX(-15px);
 }
 
 .ul_navbar{
@@ -69,10 +67,4 @@ body{
 .ul_navbar>li>a:visited,
 .ul_navbar>li>a:link{
     color: black;
-}
-
-.pageLeft,
-.pageRight{
-    position: absolute;
-    bottom: 0;
 }

@@ -61,6 +61,7 @@ function updatePageNumbers(){
 
 function disableEdit(id){
     document.getElementById(`${id}content`).disabled = true;
+    document.getElementById(`${id}content`).style.backgroundColor = "transparent";
     document.getElementById(`${id}content`).style.border = "none";
     document.getElementById(`${id}cancelButton`).style.display = "none";
     document.getElementById(`${id}updateButton`).style.display = "none";
@@ -128,6 +129,7 @@ document.getElementById("ledit").addEventListener("click", async (e) => {
 
     if(textarea.disabled){
         textarea.disabled = false;
+        textarea.style.backgroundColor = "#fdecd69d"
         textarea.style.border = "black solid 1px"
         leditBtn.style.display = "none";
         updateBtn.style.display = "block";
@@ -164,6 +166,7 @@ document.getElementById("redit").addEventListener("click", async (e) => {
 
     if(textarea.disabled){
         textarea.disabled = false;
+        textarea.style.backgroundColor = "#fdecd69d"
         textarea.style.border = "black solid 1px"
         reditBtn.style.display = "none";
         updateBtn.style.display = "block";
@@ -172,9 +175,5 @@ document.getElementById("redit").addEventListener("click", async (e) => {
 })
 
 document.getElementById("rcancelButton").addEventListener("click", async (e) => {
-    document.getElementById("rcontent").disabled = true;
-    document.getElementById("rcontent").style.border = "none";
-    document.getElementById("rcancelButton").style.display = "none";
-    document.getElementById("rupdateButton").style.display = "none";
-    document.getElementById("redit").style.display = "block";
+    disableEdit("r")
 })
