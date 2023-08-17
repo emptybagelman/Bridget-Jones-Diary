@@ -6,17 +6,51 @@ body{
     justify-content: center;
     margin: 0;
     padding: 20px;
+    transform-style: preserve-3d;
 }
 
 .book{
+    width: 70vw;
+    height: 95vh;
+    background: rgb(209, 184, 151);
+    position: relative;
+    z-index: 5;
+    display: flex;
+}
+
+.left,
+.right{
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40vw;
-    height: 95vh;
-    background: rgb(179, 94, 61);
-    position: relative;
-    z-index: 5;
-
 }
 
+.left{
+    justify-content: center;
+}
+
+.navbar{
+    display: flex;
+}
+
+.ul_navbar{
+    display: flex;
+    padding-right: 20px;
+}
+
+.ul_navbar>li{
+    padding: 15px 40px 15px 40px;
+    list-style: none;
+    outline: solid black 1px;
+    margin: 2px;
+}
+
+.ul_navbar>li>a{
+    text-decoration: none;
+}
+
+.ul_navbar>li>a:visited,
+.ul_navbar>li>a:link{
+    color: black;
+}
