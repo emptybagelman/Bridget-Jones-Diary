@@ -9,12 +9,51 @@ class Entry {
     }
 
     static async getAll(){
-        const response = await db.query("SELECT * FROM diary;");
+        const response = await db.query("SELECT * FROM diary ORDER BY date DESC;");
         if(response.rows.length === 0){
             throw new Error("No entries available");
         }
         return response.rows.map(e => new Entry(e));
     }
+
+    static async getOneById(entry_id) {
+    const response = await db.query("SELECT * FROM diary WHERE entry_id = $1;", [entry_id]);
+    console.log('getOneById response:', response.rows[0]);
+    
+    if (response.rows.length != 1) {
+        throw new Error("Unable to locate entry.")
+        }
+        return new Entry(response.rows[0]);
+    }
+
+    static async create(data) {
+        const { date, time, content } = data
+        const response = await db.query(`
+          INSERT INTO diary(date, time, content)
+          VALUES ($1, $2, $3) RETURNING *`,
+          [date, time, content]
+        )
+        return new Entry(response.rows[0])
+    }
+
+    async update(data) {
+        const response = await db.query("UPDATE diary SET content = $1 WHERE entry_id = $2 RETURNING *", 
+        [data.content, this.entry_id])
+
+        if (response.rows.length != 1) {
+            throw new Error('Unable to update entry content')
+        }
+        return new Entry(response.rows[0])
+    }
+
+    async destroy() {
+        const response = await db.query('DELETE FROM diary WHERE entry_id = $1 RETURNING *;', [this.entry_id]);
+        if (response.rows.length != 1) {
+            throw new Error("Unable to delete entry.")
+        }
+        return new Entry(response.rows[0]);
+    }
+
 }
 
 module.exports = Entry;
