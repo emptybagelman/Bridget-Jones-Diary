@@ -13,7 +13,18 @@ async function loadNotes(id){
         date.textContent = entries.date;
         time.textContent = entries.time;
         content.textContent = entries.content;
-    }    
+    }   
+    if(document.getElementById("ldate").textContent === ''){
+        document.getElementById("ledit").style.display = "none";
+    }else{
+        document.getElementById("ledit").style.display = "block";
+    }
+    if(document.getElementById("rdate").textContent === ''){
+        document.getElementById("redit").style.display = "none";
+    }else{
+        document.getElementById("redit").style.display = "block";
+
+    } 
 }
 
 async function setSession(pfx,id) {
@@ -38,6 +49,14 @@ function getPrefix(id){
     }else{
         return "r";
     }
+}
+
+function updatePageNumbers(){
+    const left = document.querySelector(".pageLeft");
+    const right = document.querySelector(".pageRight");
+
+    left.textContent = sessionStorage.getItem("left");
+    right.textContent = sessionStorage.getItem("right");
 }
 
 function disableEdit(id){
@@ -65,6 +84,7 @@ document.querySelector(".before").addEventListener("click", () => {
 
         loadNotes(sessionStorage.getItem("left"))
         loadNotes(sessionStorage.getItem("right"))
+        updatePageNumbers()
     }else{
         console.log("Can't go any further")
     }
@@ -77,15 +97,10 @@ document.querySelector(".next").addEventListener("click", () => {
 
     loadNotes(sessionStorage.getItem("left"))
     loadNotes(sessionStorage.getItem("right"))
+    updatePageNumbers()
+
 
 })
-
-
-
-
-
-
-
 
 // LEFT
 document.getElementById("lentry_form").addEventListener("submit", async (e) => {

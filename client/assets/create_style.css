@@ -35,18 +35,14 @@ body *{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
 }
 
 .left{
     justify-content: space-between;
-
     background: linear-gradient(90deg, var(--bg) 95%, var(--bg-shadow) 100%);
 }
 
 .right{
-    display: flex;
-    justify-content: space-between;
     background: linear-gradient(270deg, var(--bg) 95%, var(--bg-shadow) 100%);
 }
 
@@ -79,85 +75,53 @@ body *{
     color: black;
 }
 
-.lentry,.rentry{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    height: 800px;
-    position: absolute;
-    bottom: 0;
-}
-
-header{
-    display: flex;
-    gap: 20px;
-    justify-content: left;
-    align-items: center;
-    padding-top: 50px;
-}
-
-.edit{
-    font-size: 1.2rem;
-}
-
-#lcontent,#rcontent {
-    width: 100%;
-    background-color: transparent;
-    font-size: 1.5rem;
-    font-family: 'Special Elite', cursive;
-    border: none;
-    border-radius: 5px;   
-    resize: none; 
-    padding-top: 20px;
-    padding-left: 10px;
-}
-
-#ledit,#redit{
-    font-size: 1.2rem;
-    width: 90px;
-    margin-top: 10px;
-    padding: 5px 10px;
-}
-
-
-
-#lupdateButton,#lcancelButton,
-#rupdateButton,#rcancelButton{
-    width: 90px;
-    font-size: 1.2rem;
-    display: none;
-    margin-top: 10px;
-    padding: 5px 10px;
-}
-
-.next,
-.before{
-    position: absolute;
-    bottom: 50%;
-    padding: 2px;
-}
-
-.before{
-    left: 2%;
-    text-align: left;
-}
-
-.before:hover,
-.next:hover{
-    background-color: var(--bg-shadow);
-    border-radius: 20px;
-    width: 30px;
-    height: 30px;
-}
-
-.next{
-    right: 2%;
-    text-align: right;
-}
-
 .pageLeft,
 .pageRight{
     position: absolute;
     bottom: 0;
+}
+
+.perms_container{
+    line-height: 1.6px;
+    width: 100%;
+    padding-left: 100px;
+    position: relative;
+}
+
+#date::before{
+    content: "Date: ";
+}
+
+form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#add_content{
+    background-color: #fdecd69d;
+    font-size: 1.5rem;
+    width: 100%;
+    resize: none;
+    border-radius: 10px;   
+    padding-top: 20px;
+    padding-left: 10px;
+    border: 2px solid rgb(97, 50, 29);
+}
+
+#create{
+    width: 150px;
+    height: 60px;
+    font-size: 1.8rem;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 5px; 
+    background-color: #fdecd69d;
+    border: 2px solid rgb(97, 50, 29);
+}
+
+#create:hover{
+    cursor: pointer;
+    background-color: var(--bg-shadow);
 }
