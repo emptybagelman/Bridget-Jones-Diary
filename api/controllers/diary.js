@@ -30,4 +30,16 @@ async function create(req,res) {
     }
 }
 
-module.exports = { index, show, create };
+async function update(req,res) {
+    try {
+        const entry_id = parseInt(req.params.id);
+        const data = req.body
+        const entryToUpdate = await Diary.getOneById(entry_id)
+        const result = await entryToUpdate.update(data)
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(404).json({ error: err.message })
+    }
+}
+
+module.exports = { index, show, create, update };

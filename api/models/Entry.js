@@ -35,6 +35,17 @@ class Entry {
         )
         return new Entry(response.rows[0])
     }
+
+    async update(data) {
+        const response = await db.query("UPDATE diary SET content = $1 WHERE entry_id = $2 RETURNING *", 
+        [data.content, this.entry_id])
+
+        if (response.rows.length != 1) {
+            throw new Error('Unable to update entry content')
+        }
+        return new Entry(response.rows[0])
+    }
+
 }
 
 module.exports = Entry;
